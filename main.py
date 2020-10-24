@@ -59,7 +59,10 @@ def get_parsed_products(catalogs):
     for catalog in catalogs:
         results = link2products_list(catalog.link)
         products_list += results
-        print("Каталог: " + catalog.name + " url: " + catalog.link + "продуктов: (" + str(len(results)) + ")")
+
+        print("Каталог: " + catalog.name +
+              " | url: " + catalog.link +
+              " | Кол-во продуктов: (" + str(len(results)) + ")")
 
     print("====================")
     return products_list
