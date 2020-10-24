@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import date
 import xlsxwriter
+import os
 
 from models import Catalog, Product
 
@@ -174,6 +175,9 @@ if __name__ == '__main__':
     if not isEmpty:
         # формируем название excel файла по дате
         path_to_file = 'results/mebelaero-' + str(date.today()) + '.xlsx'
+
+        if not os.path.exists('results'):
+            os.mkdir("results")
 
         # убираем дубликаты
         uniq_products = list(set(products))
